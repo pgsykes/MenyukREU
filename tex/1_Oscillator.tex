@@ -1,0 +1,283 @@
+ \baselineskip14pt \parskip4pt plus2pt
+ \def\hI{\hbox{I}} 
+ \def\cc{\hbox{c.c.}}
+ \def\cC{{\cal C}}  
+ \def\cL{{\cal L}}
+ \def\tx{\tilde x}
+ \def\tJ{\tilde J} 
+ \def\tI{\tilde I}  
+ \def\tV{\tilde V}
+ \def\xi{x_{rm i}}  
+ \def\vi{v_{\rm i}}
+ 
+\centerline{\large\textbf I.~Simple linear oscillators}\bigskip
+ 
+\leftline{\bf A.  Definitions and Background}
+
+Oscillators are a basic element in any measurement system and, in
+particular, are the core element in any clocks.  By definition, an
+{\it oscillator} is a device that produces that changes sinusoidally
+as a function of time, so that if $s$ is the signal and $t$ is time, we
+have $s(t) = s_0\cos(\omega t + \phi_0)$, where $s_0$ and $\phi_0$ are
+constants, and $\omega=f/2\pi$ is the angular frequency and $f$ is the
+usual frequency, measured in Hz or s$^{-1}$.  The signal can be a mechanical 
+signal.  Examples are the oscillations of a pendulum or a tuning fork.  
+Typical frequencies for a pendulum clock are on the order of 1 Hz, while
+typical frequencies for a tuning fork are on the order of 500 Hz.
+The signal can be an electrical signal.  Typical frequencies in this case
+range from a few kilohertz to hundreds of MHz.  The signals can come from 
+crystal vibrations.  Quartz crystal oscillators, which are the workhorse 
+of most timekeeping systems, oscillate at frequencies from a few kHz to
+tens of MHz.  The best oscillators use atomic transitions.  When an atom
+or molecule gives up energy, it emits a pure electromagnetic wave.  The
+oscillations in this case are at much higher frequencies.  For cesium
+atoms, which are the basis of modern-day atomic clocks, the frequency
+is close to $10\times10^9$ Hz or 10 GHz.  Optical transitions occur at
+frequencies that are up to 100,000 times higher.  Clocks are currently
+being developed at NIST that use a lattice of Yb atoms, that have an
+oscillation frequency of about $500\times10^{12}$ Hz or 500 THz.
+
+Operation at higher frequency is important because clocks are made by
+counting the number of zero crossings.  A larger number of zero-crossings
+per second makes it possible to develop more accurate clocks.
+
+Strictly speaking, an oscillator does not have to produce a sinusoidal
+signal.  It is sufficient for the signal to repeat periodically, so that
+$s(t+T) = s(t)$, and in fact real oscillators do not produce strictly
+sinusoidal signals.  Some {\it nonlinearity} is always present.  However, it 
+is a remarkable fact of nature that any oscillator, when it operates at a
+sufficiently low amplitude, will become sinusoidal.  Moreover, any real
+oscillator will not operate with an absolutely constant amplitude $s_0$
+and phase $\phi_0$.  There are always noise sources that make these
+quantities {\it fluctuate} (vary around its average value) or {\it drift}
+(walk away from its initial value).  We will characterize these effects
+later.
+
+ \bigskip
+ \leftline{\bf B.~Second-Order Linear Oscillators}
+ 
+The simplest model of a mechanical oscillator is a mass on a spring 
+oscillating around a fixed equilibrium value $x_0=0$, as shown in Fig.~1.a.  
+The force that the mass $m$ experiences is given by $F=-kx$, where $x$ is
+the distance away from the equilibrium value and $k$ is the spring constant.
+In this case, Newton's force law tells us that $F=ma$, where $a$ is the
+acceleration or 
+ $$m{d^2 x\over dt^2} = -kx.  \eqno(\hI.1)$$
+Equation I.1 is a second-order linear differential equation with constant
+coefficients.
+It will be useful in the future to rewrite this equation as two first-order
+equations.  If we define the velocity $v=dx/dt$, we find that Eq.~(I.1)
+becomes
+ $${dx\over dt} = v, \quad {dv\over dt} = -{k\over m}x.
+    \eqno(\hI.2)$$
+The solution to Eq.~(I.2) can be written in a number of different ways,
+each of which has its uses.  One way to write the solution is
+ $$x(t) = x_0\cos(\omega t + \phi_0),  \quad v(t) = -\omega 
+    x_0\sin(\omega t + \phi_0),  \eqno(\hI.3)$$
+where $\omega = (k/m)^{1/2}$.
+The constants $x_0$ and $\phi_0$ are determined by the 
+{\it initial conditions}
+of the oscillator, or, in other words, the state that the oscillator is in
+at the point in time that we pick to be the origin, $t=0$.  We see that 
+$\xi\equiv x(t=0)=x_0\cos\phi$ and $\vi\equiv v(t=0)=-\omega x_0\sin\phi$, 
+so that $a=(\xi^2 + \vi^2/\omega^2)^{1/2}$ and 
+$\phi_0 = \tan^{-1}(-\vi/\omega \xi)$.  Another way to write the solution 
+is
+ $$x(t) = x_c\cos\omega t - x_s\sin\omega t, \quad
+    v(t) = -\omega x_c\sin\omega t - \omega x_s\cos\omega t,  \eqno(\hI.4)$$
+where $x_c=a\cos\phi$ and $x_s=a\sin\phi$.  A third way to write to write 
+this solution is 
+ $$x(t) = {1\over2}\tx\exp(i\omega t) + {1\over2}\tx^*\exp(-i\omega t), 
+    \quad
+    v(t) = {i\over2}\omega \tx\exp(i\omega t) 
+    - {i\over2}\omega \tx^*\exp(-i\omega t).
+    \eqno(\hI.5)$$
+where $i\equiv\sqrt{-1}$.  The constant $\tx$ is a complex number, so that
+$\tx=\tx_1 + i\tx_2$, where both $\tx_1$ and $\tx_2$ are real.  We have 
+$\tx^* = \tx_1 - i\tx_2$ is the complex conjugate of $\tx$, and we note that
+$\exp(\pm i\omega t) = \cos\omega t \pm i\sin\omega t$.  It follows that
+$\tx_1=x_c$ and $\tx_2 = x_s$, so that $\tx=x_c+ix_s=x_0\exp(i\phi_0)$.  
+It might seem as 
+though the use of complex numbers unnecessarily complicates things, but, in 
+fact, their use greatly simplifies the mathematical discussions.  The phase 
+of the complex number $C$ corresponds to the phase offset in the real
+displacement $x(t)$.
+
+A point on notation:  Engineers typically use $j=\sqrt{-1}$, instead of $i$.
+Mathematicians and physicists typically use $i$.  In optical engineering,
+both notations can be found.
+
+The simplest model of an electrical oscillator is an LC circuit, shown in
+Fig.~1.b.  In this case, we find that
+ $${d V(t)\over d t} = {1\over C}I(t), \quad {d I(t)\over dt} 
+    = -{1\over L} V(t),  \eqno(\hI.6)$$
+where $L$ is the inductance and $C$ is the capacitance.  This equation
+is once again a linear second order differential equation.  Mathematically,
+it is identical to the mechanical oscillator, even though the physical
+system is completely different.  Same equations; same solutions!  So, we
+can just write down the solution,
+ $$V(t) = {1\over2}\tV\exp(i\omega t) + \hbox{c.c.}, 
+ \quad I(t) = {i\over2Z_0} \tV\exp(i\omega t) + \hbox{c.c}, 
+ \eqno(\hI.7)$$
+where $\hbox{c.c.}$ is short for complex conjugate, 
+$\omega = 1/(LC)^{1/2}$, $Z_0 = (L/C)^{1/2}$ is the characteristic
+impedance of the circuit, and $\tV=\tV_1 + i\tV_2$ is determined by
+the initial conditions.  We have $\tV_1=V(t=0)$ and $\tV_2=-I(t=0)Z_0$.
+
+ \bigskip
+ \leftline{\bf C.~Visualizing the Solutions}
+ 
+In order to understand these solutions, it is useful to plot them.  We
+will use {\tt MATLAB} for this purpose.  {\tt MATLAB} is a high-level
+programming language that has embedded in it many special functions and
+routines that are necessary for engineering and physics.  It also has
+numerous routines for plotting.  UMBC has a license; so, it is available to 
+all UMBC students for free.
+
+When plotting solutions, it is necessary to pick a {\it normalization} for
+the quantities since computers work with non-dimensional quantities.  It 
+is possible to normalize with respect to the standard SI (Syst\`eme
+International) units.  The SI units are the basic units in terms of which
+all other units are defined [s = second, kg = kilogram, m = meter, A =
+ampere, K = kelvin, mol = mole, cd = candela].  However, it is usually
+However, it is usually best to work in units that
+correspond to the physical system.  In normalizing time, we are typically
+interested in times that are short compared to a second; so, we might
+use units of ms (milliseconds, 10$^{-3}$ s), $\mu$s (microseconds, 
+10$^{-6}$ s), ns (nanoseconds, 10$^{-9}$ s), or ps (picoseconds, 
+10$^{-12}$ s).  In normalizing frequencies, we are typically interested in 
+frequencies that are bigger than 1 Hz; so, we might use units of kHz 
+(kilohertz, 10$^3$ Hz), MHz (megahertz, 10$^6$ Hz), GHz (gigahertz, 10$^9$
+Hz), or THz (terahertz, 10$^{12}$ Hz). 
+
+In a typical laboratory experiment with a mass on a spring, the mass
+might equal 10 grams or $10^{-2}$ kg in standard SI units.
+The spring might have a spring constant of 10 N/m.  In this case, the
+radial frequency is given by $\omega = [10/10^{-2}]^{1/2} = 31.3$ s$^{-1}$,
+so the frequency $f=\omega/2\pi = 5.03$ Hz, which means that the weight
+will oscillate about five times per second.  So, normalizing with respect
+to the second makes sense.  A typical maximum length $x_0$ might be on the
+order of 1 cm (10$^{-2}$ m); so, normalizing lengths with respect 1 cm
+makes sense.  In this case, we find that the maximum velocity is given
+by $\omega x_0 = 0.316$ m/s.  
+
+If we consider a typical 
+laboratory experiment with an LC circuit, the capacitor might have a
+capacitance of 100 pF (10$^{-10}$ F = 10$^{-10}$ 
+s$^4$A$^2$kg$^{-1}$m$^{-2}$) and
+the inductor might have an inductance of 1 mH (10$^{-3}$ H = 10$^{-3}$ 
+s$^{-2}$A$^{-2}$kg m$^{2}$).  In this case, we find that $\omega =
+3.16\times10^6$ s$^{-1}$, so that $f=503$ kHz or $f=0.503$ MHz.
+So, it makes sense to work in units of kHz or perhaps MHz.  In 10 $\mu$s,
+there are about five oscillations.  If the
+amplitude of the voltage is 1 V, then the characteristic impedance
+is given by $Z_0 = (10^{-3}/10^{-10})^{1/2}$ ohms ${}= 3.16\times10^3$
+$\Omega$ = 3.16 k$\Omega$.  The amplitude of the current is then given
+by $I_0 = 0.316$ mA or 316 $\mu$A\null.  
+
+Figure 2.a shows the plot of this case as a function of time for five 
+periods.  Figure 2.b shows phase plots in which both the current and voltage
+are plotted as time varies.  These plots are useful as they show
+qualitative features of the evolution that time plots don't reveal, and we
+will use them many times.  We see that the phase plots close in on
+themselves, which corresponds to the pattern repeating periodically,
+as is required for a good oscillator.  Here, we show three different
+cases, corresponding to $V_0 = 0.5$, 0.7, and 0.9.  We also show the
+MATLAB code that we used to generate the plots.  The curves are elliptical
+in shape because the oscillator energy is constant.  
+The energy of the mechanical oscillator is given by
+ $$U = {1\over 2} mv^2 + {1\over2} k x^2,  \eqno(\hI.8)$$
+and the energy of the electrical oscillator is given by
+ $$U={1\over2}LI^2 +{1\over 2C}V^2.  \eqno(\hI.9)$$
+
+ \bigskip
+ \leftline{\bf D. Damped-Driven Oscillators}
+ 
+In reality, all physical systems are damped.  In the case of the mechanical
+oscillators, our equations become
+ $${dx\over dt} = v, \quad {dv\over dt} = -\alpha v -{k\over m}x,
+    \eqno(\hI.10)$$
+For the electrical oscillator, if we consider the RLC circuit that we
+show in Fig.~3, we find
+ $${dV\over dt} = {1\over C}I, \quad {dI\over dt} = -{1\over RC}I
+    -{1\over L}V,  \eqno(\hI.11)$$
+where $R$ is the resistance.  Loss in this circuit is reduced when the
+resistance is large so that there is little current flow through the
+resistor.  Focusing on the electrical oscillator, we
+find that Eq.~I.11 has the general solution
+ $$V(t) = {1\over2}\tV_+\exp(\lambda_+ t) 
+    + {1\over2}\tV_- \exp(\lambda_- t), 
+    \quad I(t) = {\lambda_+\over 2} \tV_+\exp(\lambda_+ t) 
+    + {\lambda_- \over 2} \tV_- \exp(\lambda_- t),  \eqno(\hI.12)$$
+where
+ $$ \lambda_{\pm} = -{1\over 2 RC} \pm \left[\left({1\over 2RC}\right)^2
+    -{1\over LC}\right]^{1/2}.  \eqno(\hI.13) $$  
+We see that if $(1/2RC)^2 > 1/LC$, then both $\lambda_+$ and $\lambda_-$
+are real, while if $1/LC > (1/2RC)^2$, then $\lambda_+$ and $\lambda_-$
+are complex conjugate numbers.  For oscillators, we are interested in the
+second case, where the damping is small.  In this case, we find
+$\lambda_+ = i\omega - \gamma$, where
+ $$\omega = \left[{1\over LC} - \left(1\over 2RC\right)^2\right]^{1/2}
+    = {1\over(LC)^{1/2}}\left[1 -{1\over 8}{L\over RC^2} +   
+    \cdots\right]^{1/2}
+    \simeq {1\over (LC)^{1/2}},  \eqno(\hI.14)$$
+where we have written a Taylor expansion for $\omega$ and just kept the
+lowest-order term.  We find $\gamma = 1/2RC$.  In this limit, we may
+write
+ $$V(t) = {1\over 2}\tV\exp[(i\omega - \gamma)t] + \cc, I(t) 
+    = {i\over 2Z_0}\tV\exp[(i\omega - \gamma)t] + \cc,  \eqno(\hI.15)$$
+where $1/Z_0 = (\omega + i\gamma)C$.  Hence,
+the voltage and current are no longer exactly $\pi/2$ out of phase.
+Writing the voltage and current explicitly as real quantities, we find
+\begin{align} 
+V(t) &= V_0\cos(\omega t + \phi_0)\exp(-\gamma t), \tag{I.16} \\
+    I(t) &= -{V_0\over (L/C)^{1/2}}\sin(\omega t + \phi_0 
+       + \phi_{\rm off}), 
+\end{align}
+where $V_0$ and $\phi_0$ are two constants determined by the initial
+conditions, and $\phi_{\rm off} = \tan^{-1}(\gamma/\omega)$
+
+Returning to the oscillator circuit that we considered in Sec.~I.C and
+setting the resistance $R$ equal to 50 k$\Omega$, $V_0 = 1$ V, and
+$\phi_0 = 0$, we show the evolution
+in Fig.~4.a.  The resistance causes the voltage and current to spiral
+into the origin, ultimately damping away completely.
+
+This ``death spiral'' is of course unacceptable in real oscillators, and
+it must be compensated by a source of energy that compensates for the
+loss.  So, for example, in the RLC circuit that we are considering, we
+can add a current source, as shown in Fig.~5.  Writing the time
+derivative of the current source $J(t)$ as $J'(t)$, we find that the
+equations that govern the voltage and current become
+ $${dV\over dt} - {1\over C}I = 0, \quad {dI\over dt} + {1\over RC}I
+    +{1\over L}V = J',  \eqno(\hI.17)$$
+    
+We begin by considering the case where the driver is a pure oscillating
+signal, so that
+ $$J=J_0\cos(\omega t + \phi_0) = {1\over2}\tJ\exp(i\omega_0 t) + \cc,
+    \eqno(\hI.18)$$
+where $J_0$ and $\phi_0$ are constants, and $\tJ=J_0\exp(i\phi_0)$
+is a complex constant.  We will denote the resonant frequency of the
+oscillator as $\omega_0$, so that
+ $$\omega_0 = \left({1\over LC} - \gamma^2\right)^{1/2} \simeq {1\over(LC)^{1/2}}.
+    \eqno(\hI.19)$$
+It is useful to choose the time origin so that $\phi_0 = 0$, in which
+case $\tJ$ is purely real.  Because our equations are linear, we can
+find the solutions for $V(t)$ and $I(t)$ by just setting $J(t)=\tJ
+\exp(i\omega t)$, so that $J' = i\omega\tJ
+\exp(i\omega_0 t)$ and then then taking the real part at the end.
+That turns out to be the simplest approach mathematically.  There will
+be an initial transient that damps out, after which both $I(t)$ and $V(t)$
+will be proportional to $\exp(i\omega t)$.  Writing $I(t) = \tI
+\exp(i\omega_0t)$ and $V(t) = \tV\exp(i\omega t)$, we find
+ 
+ \bigskip
+ \leftline{\bf E. Matrix Representations:  Eigenvalues and Eigenvectors}
+ 
+ \bigskip
+ \centerline{\bf Exercises}
+ 
+
+
+
+ \vfil\eject
